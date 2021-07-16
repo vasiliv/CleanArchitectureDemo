@@ -24,7 +24,7 @@ namespace Domain.Models
         public string ContactFirstName { get; set; }
         public string ContactLastName { get; set; }
         // one-to-many relationship
-        public Guid ContactInformationId { get; set; }
+        public int ContactInformationId { get; set; }
         public ContactInformation ContactInformation { get; set; }
         //Todo Photo        
         public string ImageName { get; set; }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleanArchitecture.Infra.Data.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20210715121440_Initial")]
+    [Migration("20210716150659_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,32 +21,12 @@ namespace CleanArchitecture.Infra.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CleanArchitecture.Domain.Models.Book", b =>
+            modelBuilder.Entity("Domain.Models.ContactInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AuthorName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ISBN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Domain.Models.ContactInformation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ContactType")
                         .HasColumnType("nvarchar(max)");
@@ -68,8 +48,14 @@ namespace CleanArchitecture.Infra.Data.Migrations
                     b.Property<DateTime>("BornDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ContactInformationId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ContactFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContactInformationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ContactLastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstNameGeorgian")
                         .HasColumnType("nvarchar(max)");

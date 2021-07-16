@@ -8,7 +8,7 @@ namespace Domain.Models
 {
     public class ContactInformation
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string ContactType { get; set; }
         // one-to-many relationship
         public IEnumerable<Person> Persons { get; set; }

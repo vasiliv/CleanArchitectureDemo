@@ -8,25 +8,11 @@ namespace CleanArchitecture.Infra.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Books",
+                name: "ContactInformation",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ISBN = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AuthorName = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Books", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ContactInformation",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ContactType = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -46,7 +32,9 @@ namespace CleanArchitecture.Infra.Data.Migrations
                     IdentityNumber = table.Column<int>(type: "int", nullable: false),
                     BornDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactInformationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ContactFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContactLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContactInformationId = table.Column<int>(type: "int", nullable: false),
                     ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -68,9 +56,6 @@ namespace CleanArchitecture.Infra.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Books");
-
             migrationBuilder.DropTable(
                 name: "Persons");
 

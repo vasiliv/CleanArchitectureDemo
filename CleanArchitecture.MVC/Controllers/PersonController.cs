@@ -34,9 +34,9 @@ namespace CleanArchitecture.MVC.Controllers
                 return View(model);
             }
             else {
-            PersonViewModel model = _personService.GetPersons();
-            return View(model);
-            }
+                PersonViewModel model = _personService.GetPersons();
+                return View(model);
+                 }
         }
         public IActionResult Create()
         {

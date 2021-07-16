@@ -11,8 +11,10 @@
 </p>
 <form method="get" asp-action="Index">
     <p>
-        <input type="search" placeholder="Enter search phrase..." value="@ViewData["PersonSearch"]" name="personSearch" />
-        <input type="submit" value="Search" class="btn btn-primary" />
+        @*<input type="search" placeholder="Enter search phrase..." value="@ViewData["PersonSearch"]" name="personSearch" />
+        <input type="submit" value="Search" class="btn btn-primary" />*@
+        <input type="text" name="personSearch" />
+        <input type="submit" value="Filter" />
     </p>
 </form>
 
