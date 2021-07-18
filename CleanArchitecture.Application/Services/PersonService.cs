@@ -49,5 +49,12 @@ namespace CleanArchitecture.Application.Services
                 Persons = _personRepository.Search(personSearch)
             };
         }
+        public PersonViewModel GetContacts()
+        {
+            return new PersonViewModel()
+            {
+                ContactInformations = _personRepository.GetContacts()
+            };
+        }
     }
 }

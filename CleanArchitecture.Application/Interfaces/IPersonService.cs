@@ -15,5 +15,6 @@ namespace CleanArchitecture.Application.Interfaces
         void Update(PersonViewModel person);
         void Remove(PersonViewModel person);
         PersonViewModel Search(string personSearch);
+        PersonViewModel GetContacts();
     }
 }

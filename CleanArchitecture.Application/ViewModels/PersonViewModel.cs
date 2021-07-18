@@ -11,5 +11,6 @@ namespace CleanArchitecture.Application.ViewModels
     {
         public IEnumerable<Person> Persons { get; set; }
         public Person Person { get; set; }
+        public IEnumerable<ContactInformation> ContactInformations { get; set; }
     }
 }

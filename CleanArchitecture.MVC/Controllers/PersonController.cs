@@ -2,6 +2,7 @@
 using CleanArchitecture.Application.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,7 +29,7 @@ namespace CleanArchitecture.MVC.Controllers
         [HttpGet]
         public IActionResult Index(string personSearch)
         {
-            ViewData["PersonSearch"] = personSearch;
+            //ViewData["PersonSearch"] = personSearch;
             if (!String.IsNullOrEmpty(personSearch)) { 
                 PersonViewModel model = _personService.Search(personSearch);
                 return View(model);
@@ -40,6 +41,8 @@ namespace CleanArchitecture.MVC.Controllers
         }
         public IActionResult Create()
         {
+            PersonViewModel model = _personService.GetContacts();
+            ViewBag.Contact = new SelectList(model.ContactInformations ,"Id", "ContactType");
             return View();
         }
         [HttpPost]
@@ -58,7 +61,9 @@ namespace CleanArchitecture.MVC.Controllers
             {
                 personViewModel.Person.ImageFile.CopyTo(fileStream);
             }
-            _personService.Add(personViewModel);            
+                PersonViewModel model = _personService.GetContacts();
+                ViewBag.Contact = new SelectList(model.ContactInformations, "Id", "ContactType");
+                _personService.Add(personViewModel);            
             return RedirectToAction(nameof(Index));
             }
             return NotFound();

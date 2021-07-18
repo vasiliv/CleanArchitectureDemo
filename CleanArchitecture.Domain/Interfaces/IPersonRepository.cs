@@ -15,5 +15,6 @@ namespace CleanArchitecture.Domain.Interfaces
         void Update(Person person);
         void Remove(Person person);
         IEnumerable<Person> Search(string personSearch);
+        IEnumerable<ContactInformation> GetContacts();
     }
 }

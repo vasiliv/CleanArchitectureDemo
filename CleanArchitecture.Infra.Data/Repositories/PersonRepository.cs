@@ -43,5 +43,9 @@ namespace CleanArchitecture.Infra.Data.Repositories
         {
             return _context.Persons.Where(p => p.FirstNameLatin.Contains(personSearch) || p.SecondNameLatin.Contains(personSearch));
         }
+        public IEnumerable<ContactInformation> GetContacts()
+        {
+            return _context.ContactInformation;
+        }
     }
 }
